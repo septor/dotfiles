@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openbox_menu xmlns="http://openbox.org/3.4/menu">
-	<menu id="apps-fileman-menu" label="File Managers">
-		<item label="Nautilus">
+	<menu id="apps-multimedia-menu" label="Multimedia">
+		<item label="MPlayer">
 			<action name="Execute">
-				<command>nautilus --no-desktop --browser</command>
+				<command>gmplayer</command>
 				<startupnotify>
 					<enabled>yes</enabled>
+					<wmclass>MPlayer</wmclass>
 				</startupnotify>
 			</action>
 		</item>
 	</menu>
-	<menu id="config-menu" label="Config">
-		<item label="Openbox Config">
+	<menu id="config-menu" label="config">
+		<item label="obconf">
 			<action name="Execute">
 				<command>obconf</command>
 				<startupnotify>
@@ -19,7 +20,7 @@
 				</startupnotify>
 			</action>
 		</item>
-		<item label="LXAppearance">
+		<item label="lxappearance">
 			<action name="Execute">
 				<command>lxappearance</command>
 				<startupnotify>
@@ -27,7 +28,7 @@
 				</startupnotify>
 			</action>
 		</item>
-		<item label="Tint2 Config">
+		<item label="tint2conf">
 			<action name="Execute">
 				<command>tint2conf</command>
 				<startupnotify>
@@ -35,18 +36,26 @@
 				</startupnotify>
 			</action>
 		</item>
-		<separator/>
-		<item label="Reload Openbox">
-			<action name="Reconfigure"/>
+		<item label="cups">
+			<action name="Execute">
+				<command>xdg-open http://localhost:631/</command>
+				<startupnotify>
+					<enabled>no</enabled>
+					<icon>cups</icon>
+				</startupnotify>
+			</action>
 		</item>
 	</menu>
 	<menu id="root-menu" label="Openbox 3">
-		<item label="Terminal">
+		<item label="terminal">
 			<action name="Execute">
 				<command>urxvt</command>
+				<startupnotify>
+					<enabled>yes</enabled>
+				</startupnotify>
 			</action>
 		</item>
-		<item label="Firefox">
+		<item label="web browser">
 			<action name="Execute">
 				<command>firefox</command>
 				<startupnotify>
@@ -55,12 +64,22 @@
 				</startupnotify>
 			</action>
 		</item>
+		<item label="file explorer">
+			<action name="Execute">
+				<command>nautilus --no-desktop --browser</command>
+				<startupnotify>
+					<enabled>yes</enabled>
+				</startupnotify>
+			</action>
+		</item>
 		<separator label="..."/>
-		<menu id="apps-fileman-menu"/>
-		<separator label="System"/>
+		<menu id="apps-multimedia-menu"/>
 		<menu id="config-menu"/>
 		<separator/>
-		<item label="Log Out">
+		<item label="reconfigure">
+			<action name="Reconfigure"/>
+		</item>
+		<item label="logout">
 			<action name="Exit">
 				<prompt>yes</prompt>
 			</action>
